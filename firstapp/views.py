@@ -4,3 +4,7 @@ from django.shortcuts import render, HttpResponse
 # Create your views here.
 def index(request):
     return HttpResponse("Django")
+
+
+def rec(request):
+    return render(request, "algorithm_config.html")
