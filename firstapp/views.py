@@ -10,7 +10,12 @@ def rec(request):
     if request.method == "GET":
         return render(request, "config.html")
     else:
-        print(request.POST)
+        """获取推荐配置表单数据"""
+        data = request.POST
+
+        print(data)
+
+
         return HttpResponse("配置成功")
         # return redirect('http://127.0.0.1:8000/recResult/rec_result.html')
 # else :

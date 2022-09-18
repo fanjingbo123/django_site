@@ -12,14 +12,15 @@
 </div>
 <form action="/rec/" method="post">
     {% csrf_token %}
-    <table border="1">
+    <div style="width: 50%">
+        <table border="1" >
 
         <tr>
             <td>
                 训练的最大轮数
             </td>
             <td>
-                <input type="number" max="10000" min="10" step="5" value="10">
+                <input type="number" name="max_training_times" max="10000" min="10" step="5" value="10">
             </td>
         </tr>
 
@@ -28,7 +29,7 @@
                 训练的batch_size
             </td>
             <td>
-                <input type="number" max="4096" min="16" step="16" value="16">
+                <input type="number" name="training_batch_size" max="4096" min="16" step="16" value="16">
             </td>
         </tr>
 
@@ -50,7 +51,7 @@
                 学习率
             </td>
             <td>
-                <input type="number" max="1" min="0.001" step="0.001" value="0.001">
+                <input type="number" name="learn_rate" max="1" min="0.001" step="0.001" value="0.001">
             </td>
         </tr>
 
@@ -59,7 +60,7 @@
                 负采样数目
             </td>
             <td>
-                <input type="number" max="100" min="1" step="1" value="1">
+                <input type="number" name="num_of_negative_sample" max="100" min="1" step="1" value="1">
             </td>
         </tr>
 
@@ -68,7 +69,7 @@
                 每次训练后评估的次数
             </td>
             <td>
-                <input type="number" max="100" min="1" step="1" value="1">
+                <input type="number" name="eval_times" max="100" min="1" step="1" value="1">
             </td>
         </tr>
 
@@ -77,7 +78,7 @@
                 控制训练收敛的步骤数
             </td>
             <td>
-                <input type="number" max="100" min="1" step="1" value="10">
+                <input type="number" name="steps" max="100" min="1" step="1" value="10">
             </td>
         </tr>
 
@@ -120,11 +121,11 @@
                 训练集的分割比例
             </td>
             <td>
-                训练集：<input type="number" max="1" min="0" step="0.1" value="0.8">
+                训练集：<input type="number" name="train_set" max="1" min="0" step="0.1" value="0.8">
 
-                测试集：<input type="number" max="1" min="0" step="0.1" value="0.1">
+                测试集：<input type="number" name="test_set" max="1" min="0" step="0.1" value="0.1">
 
-                验证集：<input type="number" max="1" min="0" step="0.1" value="0.1">
+                验证集：<input type="number" name="validation_set" max="1" min="0" step="0.1" value="0.1">
             </td>
         </tr>
 
@@ -158,22 +159,22 @@
             </td>
             <td>
                 <select>
-                    <option value="Recall">Recall</option>
-                    <option value="MRR">MRR</option>
-                    <option value="NDCG">NDCG</option>
-                    <option value="Hit">Hit</option>
-                    <option value="MAP">MAP</option>
-                    <option value="Precision">Precision</option>
-                    <option value="GAUC">GAUC</option>
-                    <option value="ItemCoverage">ItemCoverage</option>
-                    <option value="AveragePopularity">AveragePopularity</option>
-                    <option value="GiniIndex">GiniIndex</option>
-                    <option value="ShannonEntropy">ShannonEntropy</option>
-                    <option value="TailPercentage">TailPercentage</option>
-                    <option value="AUC">AUC</option>
-                    <option value="MAE">MAE</option>
-                    <option value="RMSE">RMSE</option>
-                    <option value="LogLoss">LogLoss</option>
+                    <option name="stop_standard" value="Recall">Recall</option>
+                    <option name="stop_standard" value="MRR">MRR</option>
+                    <option name="stop_standard" value="NDCG">NDCG</option>
+                    <option name="stop_standard" value="Hit">Hit</option>
+                    <option name="stop_standard" value="MAP">MAP</option>
+                    <option name="stop_standard" value="Precision">Precision</option>
+                    <option name="stop_standard" value="GAUC">GAUC</option>
+                    <option name="stop_standard" value="ItemCoverage">ItemCoverage</option>
+                    <option name="stop_standard" value="AveragePopularity">AveragePopularity</option>
+                    <option name="stop_standard" value="GiniIndex">GiniIndex</option>
+                    <option name="stop_standard" value="ShannonEntropy">ShannonEntropy</option>
+                    <option name="stop_standard" value="TailPercentage">TailPercentage</option>
+                    <option name="stop_standard" value="AUC">AUC</option>
+                    <option name="stop_standard" value="MAE">MAE</option>
+                    <option name="stop_standard" value="RMSE">RMSE</option>
+                    <option name="stop_standard" value="LogLoss">LogLoss</option>
                 </select>
             </td>
         </tr>
@@ -183,7 +184,7 @@
                 提前停止训练的topk
             </td>
             <td>
-                <input type="number" max="10000" min="10" step="1" value="10">
+                <input type="number" name="topK" max="10000" min="10" step="1" value="10">
             </td>
         </tr>
 
@@ -192,11 +193,13 @@
                 评测的batch_size
             </td>
             <td>
-                <input type="number" max="4096" min="16" step="16" value="16">
+                <input type="number" name="eval_batch_size" max="4096" min="16" step="16" value="16">
             </td>
         </tr>
 
     </table>
+    </div>
+
     <input type="submit" value="确认提交">
     <input type="reset" value="重置">
 </form>
