@@ -5,3 +5,11 @@ h2 {
 div {
     align-self: center;
 }
+
+table {
+    height: 300px;
+}
+
+table tr {
+    text-align: center;
+}
