@@ -4,6 +4,7 @@ h2 {
 
 div {
     align-self: center;
+    margin: 0px auto
 }
 
 table {
@@ -11,5 +12,6 @@ table {
 }
 
 table tr {
-    text-align: center;
+    width: 250px;
+    height: 70px;
 }
