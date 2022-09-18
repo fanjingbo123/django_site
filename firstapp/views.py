@@ -8,7 +8,11 @@ def rec(request):
     # print(data)
     # print(111)
     # if request.POST == GET:
-        return render(request, "algorithm_config.html")
+    return render(request, "algorithm_config.html")
 
-    # else :
-    #     return redirect('')
+
+# else :
+#     return redirect('')
+
+def result(request):
+    return render(request, "rec_result.html")
