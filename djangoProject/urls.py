@@ -20,6 +20,6 @@ from firstapp import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('recPage/', views.rec),
+    path('rec/', views.rec),
     path('recResult/', views.result),
 ]

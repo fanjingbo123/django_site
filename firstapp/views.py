@@ -7,10 +7,12 @@ def rec(request):
     # data = request.POST.get()
     # print(data)
     # print(111)
-    # if request.POST == GET:
-    return render(request, "algorithm_config.html")
-
-
+    if request.method == "GET":
+        return render(request, "config.html")
+    else:
+        print(request.POST)
+        return HttpResponse("配置成功")
+        # return redirect('http://127.0.0.1:8000/recResult/rec_result.html')
 # else :
 #     return redirect('')
 
