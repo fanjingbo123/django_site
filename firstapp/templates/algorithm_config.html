@@ -1,19 +1,170 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>算法配置</title>
+
 </head>
 <body>
 <div style="align-self: center">
     <h2>配置你的推荐算法</h2>
+    <hr>
 </div>
-<table>
-    <tr>
+<form action="algorithm_config.html" method="post">
+    <table>
+        <tr>
+            <td>
+                训练的最大轮数
+            </td>
+            <td>
+                <input type="number" max="10000" min="10" step="5" value="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                训练的batch_size
+            </td>
+            <td>
+                <input type="number" max="4096" min="16" step="16" value="16">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                使用的内部优化器
+            </td>
+            <td>
+                <input type="radio" name="group1" value="adam" id="group1_0" checked>adam<br>
+                <input type="radio" name="group1" value="sgd" id="group1_1">sgd<br>
+                <input type="radio" name="group1" value="adagrad" id="group1_2">adagrad<br>
+                <input type="radio" name="group1" value="msprop" id="group1_3">msprop<br>
+                <input type="radio" name="group1" value="sparse_adam" id="group1_4">sparse_adam<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                学习率
+            </td>
+            <td>
+                <input type="number" max="1" min="0.001" step="0.001" value="0.001">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                负采样数目
+            </td>
+            <td>
+                <input type="number" max="1" min="0.001" step="0.001" value="0.001">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                每次训练后评估的次数
+            </td>
+            <td>
+                <input type="number" max="1" min="0.001" step="0.001" value="0.001">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                控制训练收敛的步骤数
+            </td>
+            <td>
+                <input type="number" max="1" min="0.001" step="0.001" value="0.001">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                评估的方式
+            </td>
+            <td>
+                <input type="radio" name="group1" value="adam" id="group1_0" checked>RO_RS<br>
+                <input type="radio" name="group1" value="sgd" id="group1_1">RO_LS<br>
+                <input type="radio" name="group1" value="adagrad" id="group1_2">TO_RS<br>
+                <input type="radio" name="group1" value="msprop" id="group1_3">TO_LS<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                评估的方式
+            </td>
+            <td>
+                <input type="radio" name="group1" value="adam" id="group1_0" checked>RO_RS<br>
+                <input type="radio" name="group1" value="sgd" id="group1_1">RO_LS<br>
+                <input type="radio" name="group1" value="adagrad" id="group1_2">TO_RS<br>
+                <input type="radio" name="group1" value="msprop" id="group1_3">TO_LS<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
 
-    </tr>
-</table>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+
+    </table>
+    <input type="submit" value="确认提交">
+    <input type="reset" value="重置">
+</form>
+
 
 </body>
 </html>
