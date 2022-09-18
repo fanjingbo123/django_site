@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rec',
-        'USER': 'root',
-        'PASSWORD': '11111111',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'NAME': 'rec', # 使用的数据库
+        'USER': 'root', # 数据库用户名
+        'PASSWORD': '11111111', # 数据库密码
+        'HOST': '127.0.0.1', # 服务器的ip
+        'PORT': 3306, # mysql运行的端口
     }
 }
 
