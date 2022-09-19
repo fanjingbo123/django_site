@@ -23,4 +23,16 @@ def rec(request):
 #     return redirect('')
 
 def result(request):
-    return render(request, "rec_result.html")
+    if request.method == "GET":
+
+        return render(request, "rec_result.html")
+    else:
+        uid = request.POST.get('uid')
+        itemid = request.POST.get('itemid')
+        print(uid, itemid)
+        #
+        List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'}]
+
+        return render(request, "rec_result.html", {'List':List})
+
+
