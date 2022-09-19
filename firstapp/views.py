@@ -35,7 +35,7 @@ def result(request):
         uid = request.POST.get('uid')
         print(uid)
         #
-        List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'}]
+        List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '1234', 'item_name': 'zhongguo918'},{'item_id': '12345', 'item_name': 'zhongguo918'},{'item_id': '123456', 'item_name': 'zhongguo918'}]
 
         return render(request, "rec_result.html", {'List':List, 'uid':uid})
 
@@ -47,7 +47,7 @@ def addToBehaviour(request):
         itemid = request.POST['itemid']
         print(itemid)
 
-        return redirect('../recResult', args = {'List':List, 'uid':uid})
+        return redirect('../recResult',args=[{'List':List, 'uid':uid}])
 
 
 
