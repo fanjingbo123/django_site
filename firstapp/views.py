@@ -28,8 +28,7 @@ def result(request):
         return render(request, "rec_result.html")
     else:
         uid = request.POST.get('uid')
-        itemid = request.POST.get('itemid')
-        print(uid, itemid)
+        print(uid)
         #
         List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'}]
 
