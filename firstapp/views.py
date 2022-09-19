@@ -47,7 +47,7 @@ def addToBehaviour(request):
         itemid = request.POST['itemid']
         print(itemid)
 
-        return redirect('../recResult')
+        return redirect('../recResult', args = {'List':List, 'uid':uid})
 
 
 
