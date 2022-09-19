@@ -12,9 +12,8 @@ def rec(request):
     else:
         """获取推荐配置表单数据"""
         data = request.POST
+        data = dict(data)
         print(data)
-        meta = dict(data)
-        print(meta)
         # for item in meta['evaluation']:
         #     print(item)
 
