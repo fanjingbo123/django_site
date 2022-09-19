@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>推荐结果</title>
+    <script src="../static/js/info.js"></script>
 </head>
-<script type="javascript" src="../static/js/info.js"></script>
+
 <body>
 <div style="align-self: center">
     <h2 class="title">查看推荐结果列表</h2>
@@ -19,6 +20,7 @@
 <table>
     <thead>
     <tr>
+        <th style="width: 100px">uid</th>
         <th style="width: 100px">item_id</th>
         <th style="width: 200px">item_name</th>
         <th style="width: 100px">操作</th>
@@ -27,14 +29,18 @@
     <tbody>
     {% for item in List %}
         <tr>
+            <td style="text-align: center">{{ uid }}</td>
             <td style="text-align: center">
                 {{ item.item_id }}
             </td>
             <td style="text-align: center">
                 {{ item.item_name }}
             </td>
-            <td style="text-align: center" onclick="addToBehavior()">
-                <button>详情</button>
+            <td style="text-align: center">
+                <form method="post" action="{% url 'addToBehaviour' %}">
+                    {% csrf_token %}
+                    <button type="submit" name="itemid" value="{{ item.item_id }}">添加</button>
+                </form>
             </td>
         </tr>
     {% endfor %}

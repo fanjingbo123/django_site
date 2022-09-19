@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 
 
+
+
 # Create your views here.
 
 def rec(request):
@@ -22,7 +24,10 @@ def rec(request):
 # else :
 #     return redirect('')
 
+
 def result(request):
+    global uid
+    global List
     if request.method == "GET":
 
         return render(request, "rec_result.html")
@@ -32,6 +37,17 @@ def result(request):
         #
         List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '123', 'item_name': 'zhongguo918'}]
 
-        return render(request, "rec_result.html", {'List':List})
+        return render(request, "rec_result.html", {'List':List, 'uid':uid})
+
+def addToBehaviour(request):
+    global uid
+    global List
+    print(uid, List)
+    if request.method == "POST":
+        itemid = request.POST['itemid']
+        print(itemid)
+
+        return redirect('../recResult')
+
 
 
