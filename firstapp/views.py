@@ -29,7 +29,6 @@ def result(request):
     global uid
     global List
     if request.method == "GET":
-
         return render(request, "rec_result.html")
     else:
         uid = request.POST.get('uid')
@@ -47,7 +46,7 @@ def addToBehaviour(request):
         itemid = request.POST['itemid']
         print(itemid)
 
-        return redirect('../recResult',args=[{'List':List, 'uid':uid}])
+        return redirect('../recResult', args = {'List':List, 'uid':uid})
 
 
 
