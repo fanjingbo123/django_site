@@ -1,8 +1,9 @@
 from django.shortcuts import render, HttpResponse, redirect
 
 
-
-
+from Rec.models import User
+data = User.objects.all().first()
+print(data.id)
 # Create your views here.
 
 def rec(request):
@@ -26,27 +27,29 @@ def rec(request):
 
 
 def result(request):
-    global uid
-    global List
+    # global uid
+    # global List
     if request.method == "GET":
         return render(request, "rec_result.html")
     else:
         uid = request.POST.get('uid')
-        print(uid)
+        # data = ItemList.objects.all()
+        print(uid, data)
+
         #
         List = [{'item_id': '123', 'item_name': 'zhongguo918'},{'item_id': '1234', 'item_name': 'zhongguo918'},{'item_id': '12345', 'item_name': 'zhongguo918'},{'item_id': '123456', 'item_name': 'zhongguo918'}]
 
         return render(request, "rec_result.html", {'List':List, 'uid':uid})
 
 def addToBehaviour(request):
-    global uid
-    global List
-    print(uid, List)
+    # global uid
+    # global List
     if request.method == "POST":
         itemid = request.POST['itemid']
+        # 在这里将itemid加到那个behaviour表里
         print(itemid)
 
-        return redirect('../recResult', args = {'List':List, 'uid':uid})
+        return redirect('../recResult')
 
 
 
