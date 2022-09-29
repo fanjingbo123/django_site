@@ -1,11 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>推荐结果</title>
-{#    <script src="../static/js/info.js">#}
-{#        #}
-{#    </script>#}
 </head>
 
 <body>
@@ -16,14 +14,21 @@
 
 <form method="post">
     {% csrf_token %}
-    用户ID：<input type="text" style="width: 200px; height: 20px;font-size: 15px" name="uid" placeholder="请输入你的用户ID">
+    用户ID：<input type="text" style="width: 200px; height: 20px;font-size: 15px" name="uid" placeholder="请输入你的用户ID" required>
     <input type="submit" style="width: 50px; height: 30px;font-size: 15px;border-radius: 10px" value="提交">
 </form>
-<table>
+   {% if uid != none %}
+       <div style="font-size: 18px; border-radius: 5px">
+           当前登录的用户ID为：{{ uid }}
+       </div>
+   {% endif %}
+
+<div>
+    <table>
     <thead>
     <tr>
         <th style="width: 100px">item_id</th>
-        <th style="width: 200px">item_name</th>
+        <th style="width: 300px">item_name</th>
         <th style="width: 100px">操作</th>
     </tr>
     </thead>
@@ -37,16 +42,34 @@
                 {{ item.item_name }}
             </td>
             <td style="text-align: center">
-                <form method="post" action="{% url 'addToBehaviour' %}">
-                    {% csrf_token %}
-                    <button type="submit" name="itemid" value="{{ item.item_id }}">添加</button>
-                </form>
+                <button name="{{ item.item_id }}" onclick="f('{{ item.item_id }}', '{{ uid }}')" type="submit" value="{{ item.item_id }}">修改</button>
             </td>
         </tr>
     {% endfor %}
 </tbody>
 
 </table>
+</div>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script>
+    function f(t, uid) {
+        var loadNewTable = document.getElementsByName("")
+        {#alert("{{ item.item_id }}")#}
+        console.log(t)
+
+        $.ajax({
+            url:'',
+            method:'post',
+            data:{loadNewTable: t, uid: uid},
+            headers:{"X-CSRFToken":$.cookie("csrftoken")},
+            success:function (data) {
+                alert('添加成功！')
+            }
+        })
+    }
+</script>
 </html>

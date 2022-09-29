@@ -19,8 +19,7 @@ from Rec import views
 
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
     path('rec/', views.rec),
     path('recResult/', views.result),
-    path('addToBehaviour/', views.addToBehaviour, name="addToBehaviour"),
+    # path('addToBehaviour/', views.addToBehaviour, name="addToBehaviour"),
 ]
