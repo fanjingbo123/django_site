@@ -1,4 +1,5 @@
 import logging
+from logging.handlers import TimedRotatingFileHandler
 
 class CommonLog(object):
     """
@@ -14,7 +15,7 @@ class CommonLog(object):
 
     def __console(self, level, message):
         # 创建一个FileHandler，用于写到本地
-        # fh = logging.handlers.TimedRotatingFileHandler(self.logname, when='MIDNIGHT', interval=1, encoding='utf-8')
+        # fh = TimedRotatingFileHandler(self.logname, when='MIDNIGHT', interval=1, encoding='utf-8')
         fh = logging.FileHandler(self.logname, 'a', encoding='utf-8')
         fh.suffix = '%Y-%m-%d.log'
         fh.setLevel(logging.DEBUG)
