@@ -3,6 +3,10 @@ from django.http import JsonResponse
 
 from Rec.models import User
 
+from Rec import log
+import logging
+
+
 data = User.objects.all().first()
 print(data.id)
 
@@ -27,31 +31,32 @@ def rec(request):
         # return redirect('http://127.0.0.1:8000/recResult/rec_result.html')
 
 
-# else :
-#     return redirect('')
-
-
 def result(request):
-    # global uid
-    # global List
+
+    logger = logging.getLogger()
+    logs = log.CommonLog(logger, "Rec/reclog/log.log")
 
     if request.is_ajax():
         itemid = request.POST.get('loadNewTable')
         uid = request.POST.get('uid')
         print("ID:", itemid, "uid:", uid)
+        logs.info('id为'+uid+'的用户点击了'+'信息'+itemid)
         Data = {}
         return JsonResponse(Data)
 
     elif request.method == "GET":
+
+        logs.info('进入推荐结果页面')
         return render(request, "rec_result.html")
 
     elif request.method == "POST":
         uid = request.POST.get('uid')
         # data = ItemList.objects.all()
         print(uid, data)
+        logs.info('id为'+uid+'的用户登陆账号')
 
-        List = [{'item_id': '123', 'item_name': 'zhongguo918'}, {'item_id': '1234', 'item_name': 'zhongguo918'},
-                {'item_id': '12345', 'item_name': 'zhongguo918'}, {'item_id': '123456', 'item_name': 'zhongguo918'}]
+        List = [{'item_id': '1', 'item_name': 'zhongguo918'}, {'item_id': '2', 'item_name': 'zhongguo918'},
+                {'item_id': '3', 'item_name': 'zhongguo918'}, {'item_id': '4', 'item_name': 'zhongguo918'}, {'item_id': '5', 'item_name': 'zhongguo918'}, {'item_id': '6', 'item_name': 'zhongguo918'}, {'item_id': '7', 'item_name': 'zhongguo918'}, {'item_id': '8', 'item_name': 'zhongguo918'}, {'item_id': '9', 'item_name': 'zhongguo918'}, {'item_id': '10', 'item_name': 'zhongguo918'}, {'item_id': '11', 'item_name': 'zhongguo918'}, {'item_id': '12', 'item_name': 'zhongguo918'}, {'item_id': '13', 'item_name': 'zhongguo918'}, {'item_id': '14', 'item_name': 'zhongguo918'}, {'item_id': '15', 'item_name': 'zhongguo918'}, {'item_id': '16', 'item_name': 'zhongguo918'}, {'item_id': '17', 'item_name': 'zhongguo918'}, {'item_id': '18', 'item_name': 'zhongguo918'}]
 
         return render(request, "rec_result.html", {'List': List, 'uid': uid})
 

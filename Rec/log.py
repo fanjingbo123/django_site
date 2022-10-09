@@ -1,4 +1,4 @@
-import logging, os
+import logging
 
 class CommonLog(object):
     """
@@ -10,7 +10,7 @@ class CommonLog(object):
         self.logger = logger
         self.logger.setLevel(logging.DEBUG)
         self.logger.propagate = False
-        self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s', '%Y-%m-%d %H:%M:%S')
+        self.formatter = logging.Formatter('[%(asctime)s] [%(levelname)s]: %(message)s', '%Y-%m-%d %H:%M:%S')
 
     def __console(self, level, message):
         # 创建一个FileHandler，用于写到本地
