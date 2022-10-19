@@ -7,8 +7,8 @@ from Rec import log
 import logging
 
 
-data = User.objects.all().first()
-print(data.id)
+# data = User.objects.all().first()
+# print(data.id)
 
 
 # Create your views here.
